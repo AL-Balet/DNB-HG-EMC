@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Les annales du DNB en HG et EMC</title>
+    <link rel="stylesheet" href="style.css?v=1">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+    <script src="script.js?v=1" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="globe-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M3 12h18"></path>
+            <path d="M12 3a13 13 0 0 1 0 18"></path>
+            <path d="M12 3a13 13 0 0 0 0 18"></path>
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">Annales DNB - série générale</p>
+          <h1>Les annales du DNB en HG et EMC</h1>
+          <p class="subtitle">Tous les sujets du brevet, organisés pour enseigner, réviser et progresser</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="about-button" id="aboutButton" type="button" aria-label="À propos" aria-controls="aboutDialog" aria-expanded="false">i</button>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre" aria-pressed="false">
+          <span class="sun-icon" aria-hidden="true">☀</span>
+          <span class="moon-icon" aria-hidden="true">☾</span>
+        </button>
+        <div class="stats" aria-live="polite">
+          <span id="resultCount">0 exercice</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="list-page" id="listPage">
+        <div class="app-shell">
+          <aside class="filters" aria-label="Filtres de recherche">
+            <label class="search-field" for="searchInput">
+              <span>Recherche</span>
+              <input id="searchInput" type="search" placeholder="aire urbaine, premiere guerre mondiale...">
+            </label>
+
+            <label class="favorite-filter" for="favoriteOnly">
+              <input id="favoriteOnly" type="checkbox">
+              <span>Favoris uniquement</span>
+            </label>
+
+            <label for="chapterSelect">
+              <span>Chapitre</span>
+              <select id="chapterSelect"></select>
+            </label>
+
+            <label for="typeSelect">
+              <span>Type d'exercice</span>
+              <select id="typeSelect"></select>
+            </label>
+
+            <label for="yearSelect">
+              <span>Annee</span>
+              <select id="yearSelect"></select>
+            </label>
+
+            <label for="placeSelect">
+              <span>Lieu</span>
+              <select id="placeSelect"></select>
+            </label>
+
+            <button class="secondary-button" id="resetButton" type="button">Reinitialiser</button>
+          </aside>
+
+          <section class="results" aria-label="Liste des exercices">
+            <div class="list-head">
+              <h2>Exercices</h2>
+              <select id="sortSelect" aria-label="Tri des exercices">
+                <option value="recent">Plus recents</option>
+                <option value="oldest">Plus anciens</option>
+                <option value="subject">Par matiere</option>
+              </select>
+            </div>
+            <div class="exercise-list" id="exerciseList"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="detail-page" id="detailPage" hidden>
+        <button class="back-button" id="backButton" type="button">Retour aux exercices</button>
+
+        <section class="viewer" aria-label="Visionneuse Markdown">
+        <div class="viewer-toolbar">
+          <div>
+            <p class="viewer-kicker" id="viewerMeta">Selectionnez un exercice</p>
+            <h2 id="viewerTitle">Sujet</h2>
+          </div>
+          <button class="correction-button" id="toggleCorrection" type="button" hidden>Afficher la correction</button>
+        </div>
+
+        <article class="markdown-view" id="subjectView"></article>
+
+        <article class="correction-panel" id="correctionPanel" hidden>
+          <div class="panel-title">Correction</div>
+          <div class="markdown-view correction-content" id="correctionView"></div>
+        </article>
+        </section>
+      </section>
+    </main>
+    <div class="about-overlay" id="aboutOverlay" hidden>
+      <section class="about-dialog" id="aboutDialog" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+        <div class="about-head">
+          <h2 id="aboutTitle">À propos</h2>
+          <button class="about-close" id="aboutClose" type="button" aria-label="Fermer">×</button>
+        </div>
+        <div class="about-content">
+          <p>👨‍🏫 Conçu par Alexandre Balet, Enseignant et formateur Histoire-Géographie, Bangkok, AEFE</p>
+          <p>🤖 Développée avec l'assistance de Codex et de Chat GPT 5.5</p>
+          <p>📬 Contact : <a href="mailto:alexandre.balet@aefe.fr">alexandre.balet@aefe.fr</a></p>
+          <p>📆 Dernière mise à jour : 10 juin 2026</p>
+        </div>
+      </section>
+    </div>
+    <footer class="site-footer">
+      <p>
+        Site créé par Alexandre Balet à partir de la
+        <a href="https://eduscol.education.fr/5202/preparer-le-diplome-national-du-brevet-dnb-avec-les-sujets-des-annales" target="_blank" rel="noopener">banque de sujets disponible sur Eduscol</a>.
+        Contenu sous licence Creative Commons CC BY-SA.
+      </p>
+    </footer>
+  </body>
+</html>
